@@ -22,9 +22,7 @@ var flipColor = function (obj) {
   }else if (obj.color==="red") {
     obj.color = "blue";
   }return obj
-
-
-}
+  }
 
 var tile2 = flipColor(tile)
 console.assert(tile2.color === "red")
@@ -68,26 +66,24 @@ var realNinjas = [
   'Michelle Yeoh',
   'Jet Li'
 ]
+var listObj = function(arrStr){
+   var strArr = [];
+   var finArr = [];
+   for(var i = 0; i < arrStr.length; i++){
+          var retObj = {};
+       var retArr = arrStr[i].split(' ')
 
-var martArtists = function (newStr){
-  var newArr =[];
-  var compArr = [];
-  for (var i = 0; i < newStr.length; i++){
-    var newObj = {};
-    var newArr = newStr[i].split('')
+      retObj.firstName = retArr[0];
+       retObj.lastName = retArr[1];
 
-    newObj.firstName = compArr[0];
-    newObj.lastName = compArr[1];
+           finArr.push(empObj)
 
-    newArr.push(newObj)
-  }
-  return newArr
+
+   }
+    return finArr
 }
 
-
-
-
-var ninjaListOfObjects = createListOfObjects(realNinjas)
+var ninjaListOfObjects = listObj(realNinjas)
 
 console.assert(typeof ninjaListOfObjects[0] === "object")
 console.assert(ninjaListOfObjects[0].firstName === "Chuck")
@@ -104,8 +100,31 @@ console.assert(ninjaListOfObjects[3].firstName === "Billy")
 // assigned name.
 // var generateDog = function(dogNm){}
 
-var dog = generateDog('rex')
+var generateDog = function (dogNm){
+  var makeDog = {};
+      makeDog.name = dogNm
+      makeDog.legs = 4
+      makeDog.weight = '75 lbs'
+      makeDog.color = 'brown'
 
+      makeDog.speak = function (sentSpk){
+        var stskSplit = sentSpk.split ('');
+        var dogArr = [];
+        var dogStr = "";
+
+        for (var i = 0; i <stskSplit.length; i++){
+          var dogSplit = stskSplit [i]. split ('');
+          dogSplit [0] = 'r'
+
+          var dogWord = dogSplit.join ('')
+          dogArr.push(dogWord);
+        }
+        var dogStr = dogArr.join("")
+        return dogStr;
+      }
+      return makeDog;
+}
+var dog = generateDog ('rex')
 console.assert(dog.legs === 4)
 console.assert(dog.name === 'rex')
 
@@ -129,13 +148,13 @@ console.assert(dog.speak('so hungry') === 'ro rungry')
 
 // e.g:
 // pluck(stooges, 'name') should yield the array, ['moe','larry','curly']
-var pluck = function(arrOfObj, prop){
+var pluck = function(arrObj, prop){
 
-   var arrOfProp = [];
-    for(var i = 0; i < arrOfObj.length; i++){
-      arrOfProp.push(arrOfObj[i][prop])
+   var arrProp = [];
+    for(var i = 0; i < arrObj.length; i++){
+      arrProp.push(arrObj[i][prop])
    }
-   return arrOfProp
+   return arrProp
 }
 
 
@@ -165,21 +184,19 @@ Let's see some bananas and nuts! This was a big get for God. They don't allow yo
 
 
 var getCounts = function (newstr){
-  var uniObj = {};
+  var uniObj = {}
   var freqWord = str.split ("")
 
   for (var i = 0; i < freqWord.length; i++){
     var storeword = freqWord[i]. toLowerCase();
 
-    storeword = (newfreq(storeword))
+    storeword = (newFreq(storeword))
     if(typeof uniObj[storeword]=== 'undefined'){
 
       uniObj[word] = 1;
-    } else {uniObj[word] = uniObj[word]+1}
+    } else{ uniObj[word] = uniObj[word]+1}
   } return uniObj
 }
-var wordFrequencyObject = getCounts(sampleText)
-
 
 console.assert( wordFrequencyObject.need === 3 )
 console.assert( wordFrequencyObject.you === 9 )
@@ -195,6 +212,11 @@ console.assert( wordFrequencyObject.you === 9 )
 // Write a function called reverseObject(). It should take as input an object,
 // and it should output a new object where the keys and values are reversed.
 
+var function(object){
+   for (var i = 0; i > object.length; i--) {
+      console.log(object[i])
+   }
+}
 
 var object = {
     occupants: 4,
